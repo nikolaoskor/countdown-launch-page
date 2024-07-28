@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang=" en">
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <script src="js/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">        
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/styleSubscribe.css" rel="stylesheet">
+        <script src="js/script.js"></script>
+        <title>Home</title>
+    </head>
+</head>
+
+<body>
+
+    <div class="container mt-5 pt-5 text-center">
+        <h1>WEBSITE IS ALMOST READY</h1>
+        <p> Our website is under construction. We'll be here soon with our new awesome.</p>
+        <p>Subscribe to be notified.</p>
+        <p id="demo"></p>
+
+        <button type="button" class="btn btn-primary transparent-btn">HOME</button>
+        <button class="btn btn-primary transparent-btn" onclick="openSubscribeModal('subscribe-modal')">SUBSCRIBE NOW</button>
+        <button class="btn btn-primary transparent-btn" onclick="openContactModal('contact-modal')">CONTACT US</button>
+        <br />
+
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-google"></a>
+        <a href="#" class="fa fa-linkedin"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <p id="designed">&copy; Designed by Nikos and developed by Nikos</p>
+
+        <video autoplay muted loop>
+            <source src="uploads/Venice_5.mp4" type="video/mp4">
+        </video>
+
+    </div>
+
+    <div id="subscribe-modal" class="modalSubscibe">
+        <div class="Subscribe-modal-content">
+            <span class="close" onclick="closeModal('subscribemodalId')">&times;</span>
+            <h2>Subscribe to the Newsletter</h2>
+            <form>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit" onclick="subscribe()">SUBSCRIBE NOW</button>
+            </form>
+
+        </div>
+    </div>
+
+    <div id="contact-modal" class="modal">
+
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('contactmodalId')">&times;</span>
+            <form id="contactForm">
+                <div class="row">
+                    <div class="col-50">
+                        <div class="form-group">
+                            <label for="name">NAME</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="surname">SURNAME</label>
+                            <input type="text" class="form-control" id="surname" required>
+                        </div>
+                        <hr />
+
+                        <div class="form-group">
+                            <label for="address">ADDRESS</label>
+                            <input type="text" class="form-control" id="address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="NUMBER">NUMBER</label>
+                            <input type="text" class="form-control" id="number" required>
+                        </div>
+                        <hr />
+
+                        <div class="form-group">
+                            <label for="city">CITY</label>
+                            <input type="text" class="form-control" id="city" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="region">REGION</label>
+                            <input type="text" class="form-control" id="region" required>
+                        </div>
+                        <hr />
+
+                        <div class="form-group">
+                            <label for="mar.status">MARITAL STATUS:</label>
+                            <select id="mar.status">
+                                <option value="1">MARRIED</option>
+                                <option value="2">SINGLE</option>
+                            </select>
+                        </div>
+                        <hr />
+
+                        <div class="form-group">
+                            <label for="children">CHILDREN:</label>
+                            <input type="checkbox" id="children" onclick="toggleChildrenInput()">
+                        </div>
+
+                        <div class="form-group" id="childrenContainer" style="display:none">
+                            <label for="numberOfChildren">NUMBER OF CHILDREN:</label>
+                            <input type="text" id="numberOfChildren" class="form-control">
+                        </div>
+                        <br />
+                    </div>
+
+                    <div class="col-50">
+                        <div class="col-50">
+
+                            <div class="form-group">
+                                <label for="dateOfBirth">DATE OF BIRTH:</label>
+                                <input type="date" id="start" name="trip-start" value="2018-07-22" min="1900-01-01"
+                                    max="2018-12-31" />
+                            </div>
+                            <hr />
+
+                            <div class="form-group">
+                                <label for="gender">GENDER:</label>
+                                <select id="gender" onchange="showHideForm()">
+                                    <option value="MALE">MALE</option>
+                                    <option value="FEMALE">FEMALE</option>
+                                </select>
+                            </div>
+                            <hr />
+
+                            <div class="form-group" id="militaryForm">
+                                <label for="military">MILITARY SERVICE:</label>
+                                <select id="military" onchange="checkMilitary()">
+                                    <option value="1">YES</option>
+                                    <option value="2">NO</option>
+                                </select>
+                                <hr />
+                            </div>
+
+                            <div class="form-group" id="dateOfDischargeDiv" style="display:none;">
+                                <label for="dateOfDischarge">DATE OF DISCHARGE:</label>
+                                <input type="date" id="dateOfDischarge" name="dateOfDischarge" value="2022-07-22"
+                                    min="1900-01-01" max="2022-12-31" />
+                                <hr />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="credit">CREDIT CART:</label>
+                                <input type="checkbox" id="credit">
+                            </div>
+                            <hr />
+
+                            <div class="form-group">
+                                <label for="loan">LOAN:</label>
+                                <input type="checkbox" id="loan">
+                            </div>
+                            <hr />
+
+                            <div class="form-group">
+                                <label for="graduate">GRATUATE:</label>
+                                <select id="graduate" onchange="showHideForm()">
+                                    <option value="HIGH SCHOOL">HIGH SCHOOL</option>
+                                    <option value="UNIVERSITY">UNIVERSITY</option>
+                                    <option value="COLLEGE">COLLEGE</option>
+                                </select>
+                            </div>
+                            </br>
+
+                            <button type="submit" class="btn btn-primary" onclick="validateForm()">SUBMIT</button>
+                            <br />
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
